@@ -1,1 +1,78 @@
+from abc import ABC, abstractmethod
 
+# ---------- Encapsulation ----------
+class Person:
+    def __init__(self, name, age):
+        self._name = name      # protected attribute
+        self.__age = age       # private attribute
+
+    def get_name(self):
+        return self._name
+
+    def get_age(self):
+        return self.__age
+
+    def set_age(self, age):
+        if age > 0:
+            self.__age = age
+        else:
+            print("Age must be positive!")
+
+# ---------- Abstraction ----------
+class Role(ABC):
+    @abstractmethod
+    def describe_role(self):
+        pass
+
+# ---------- Inheritance ----------
+class Student(Person, Role):
+    def __init__(self, name, age, student_id):
+        super().__init__(name, age)
+        self.student_id = student_id
+
+    def describe_role(self):
+        return f"Student {self.get_name()} with ID {self.student_id}"
+
+class Teacher(Person, Role):
+    def __init__(self, name, age, subject):
+        super().__init__(name, age)
+        self.subject = subject
+
+    def describe_role(self):
+        return f"Teacher {self.get_name()} teaches {self.subject}"
+
+# ---------- Polymorphism ----------
+def introduce(role_obj):
+    # Works differently depending on whether it's a Student or Teacher
+    print(role_obj.describe_role())
+
+# ---------- Class vs Instance Attributes ----------
+class School:
+    school_name = "123 Academy"  # class attribute
+
+    def __init__(self, location):
+        self.location = location    # instance attribute
+
+    def info(self):
+        return f"{School.school_name} located at {self.location}"
+
+# ---------- Usage ----------
+if __name__ == "__main__":
+    # Encapsulation
+    p = Person("Shia", 20)
+    print(p.get_name(), p.get_age())
+    p.set_age(25)
+
+    # Inheritance + Abstraction
+    s = Student("Jade", 18, "S123")
+    t = Teacher("Mr. Cruz", 40, "Math")
+
+    # Polymorphism
+    introduce(s)
+    introduce(t)
+
+    # Class vs Instance
+    school1 = School("Manila")
+    school2 = School("Batangas")
+    print(school1.info())
+    print(school2.info())
