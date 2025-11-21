@@ -1,1 +1,12 @@
+a = int(input("Enter a number: "))
+b = int(input("Enter another number: "))
 
+sum_val = a + b
+diff_val = a - b
+prod_val = a * b
+quot_val = a // b  # integer division
+
+print("Addition =", sum_val)
+print("Subtraction =", diff_val)
+print("Multiplication =", prod_val)
+print("Division =", quot_val)
