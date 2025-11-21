@@ -1,1 +1,33 @@
+import math
 
+# ---------- String Operations ----------
+message = "  Welcome to Python Programming!  "
+
+print("Original:", message)
+print("Uppercase:", message.upper())
+print("Lowercase:", message.lower())
+print("Stripped:", message.strip())
+print("Replaced 'Python' with 'Coding':", message.replace("Python", "Coding"))
+print("Starts with 'Welcome':", message.strip().startswith("Welcome"))
+print("Ends with 'Programming!':", message.strip().endswith("Programming!"))
+words_list = message.strip().split()
+print("Words List:", words_list)
+
+# ---------- Math Functions ----------
+value1 = 20
+value2 = 5.5
+value3 = -8
+
+print("Square root of", value1, ":", math.sqrt(value1))
+print("5 to the power of 3:", math.pow(5, 3))
+print("Absolute of", value3, ":", abs(value3))
+print("Ceiling of", value2, ":", math.ceil(value2))
+print("Floor of", value2, ":", math.floor(value2))
+print("Factorial of 4:", math.factorial(4))
+print("Rounded", value2, ":", round(value2))
+
+angle_degree = 30
+angle_radian = math.radians(angle_degree)
+print("Sine:", math.sin(angle_radian))
+print("Cosine:", math.cos(angle_radian))
+print("Tangent:", math.tan(angle_radian))
