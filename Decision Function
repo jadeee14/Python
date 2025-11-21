@@ -1,1 +1,14 @@
+print("=== Age Classification Program ===\n")
 
+user_age = int(input("Please enter your age: "))
+
+if user_age <= 12:
+    print("Category: Child")
+elif user_age <= 19:
+    print("Category: Teenager")
+elif user_age <= 59:
+    print("Category: Adult")
+else:
+    print("Category: Senior Citizen")
+
+print("\n=== Program Finished ===")
