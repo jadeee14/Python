@@ -1,1 +1,24 @@
+import re
 
+# Sample text
+text = "My email is riri@gmail.com and my phone is 09171234567."
+
+# Find an email
+email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b'
+email = re.search(email_pattern, text)
+if email:
+    print("Email found:", email.group())
+
+# Find a phone number (Philippine format)
+phone_pattern = r'09\d{9}'
+phone = re.search(phone_pattern, text)
+if phone:
+    print("Phone number found:", phone.group())
+
+# Find all numbers in text
+numbers = re.findall(r'\d+', text)
+print("All numbers in text:", numbers)
+
+# Replace email with a placeholder
+masked_text = re.sub(email_pattern, "[riri@gmail.com]", text)
+print("Masked text:", masked_text)
